@@ -33,12 +33,12 @@ export default class App extends React.Component {
       });
     });
     window.setTimeout(function() {
-      $.get("https://koyu.space/api/v1/timelines/tag/koyustatus", function(data) {
+      $.get("https://mastodon.social/api/v1/timelines/tag/koyustatus", function(data) {
         var statuscount = 0;
         console.log(data);
         $("#incidents").append("<ul>")
         data.forEach(status => {
-          if (status["account"]["acct"] === "koyu" || status["account"]["acct"] === "zack") {
+          if (status["account"]["acct"] === "koyu@koyu.space" || status["account"]["acct"] === "zack@koyu.space") {
             var content = twemoji.parse(status["content"]);
             status["emojis"].forEach(function(element) {
               content = content.replaceAll(":"+element["shortcode"]+":", "<img src=\""+element["url"]+"\" class=\"emoji\" draggable=\"false\">");
