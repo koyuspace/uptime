@@ -32,37 +32,42 @@ export default class App extends React.Component {
         $("#minecraft").css("background", "red");
       });
     });
-    window.setTimeout(function() {
+    var olddata = "";
+    window.setInterval(function() {
       $.get("https://mastodon.social/api/v1/timelines/tag/koyustatus", function(data) {
-        var statuscount = 0;
-        console.log(data);
-        $("#incidents").append("<ul>")
-        data.forEach(status => {
-          if (status["account"]["acct"] === "koyu@koyu.space" || status["account"]["acct"] === "zack@koyu.space") {
-            var content = twemoji.parse(status["content"]);
-            status["emojis"].forEach(function(element) {
-              content = content.replaceAll(":"+element["shortcode"]+":", "<img src=\""+element["url"]+"\" class=\"emoji\" draggable=\"false\">");
-            });
-            if (status["media_attachments"].length > 0) {
-              status["media_attachments"].forEach(function(element) {
-                if (element["type"] === "image") {
-                  content += "<a href=\""+element["url"]+"\" target=\"_blank\"><img src=\""+element["url"]+"\" width=\"200\" class=\"attachment\"></a>";
-                }
-                if (element["type"] === "gifv") {
-                  content += "<video src=\""+element["url"]+"\" width=\"200\" class=\"attachment\" controls preload autoplay loop mute></video>";
-                }
+        if (data !== olddata) {
+          $("#incidents").html("");
+          var statuscount = 0;
+          console.log(data);
+          $("#incidents").append("<ul>")
+          data.forEach(status => {
+            if (status["account"]["acct"] === "koyu@koyu.space" || status["account"]["acct"] === "zack@koyu.space") {
+              var content = twemoji.parse(status["content"]);
+              status["emojis"].forEach(function(element) {
+                content = content.replaceAll(":"+element["shortcode"]+":", "<img src=\""+element["url"]+"\" class=\"emoji\" draggable=\"false\">");
               });
+              if (status["media_attachments"].length > 0) {
+                status["media_attachments"].forEach(function(element) {
+                  if (element["type"] === "image") {
+                    content += "<a href=\""+element["url"]+"\" target=\"_blank\"><img src=\""+element["url"]+"\" width=\"200\" class=\"attachment\"></a>";
+                  }
+                  if (element["type"] === "gifv") {
+                    content += "<video src=\""+element["url"]+"\" width=\"200\" class=\"attachment\" controls preload autoplay loop mute></video>";
+                  }
+                });
+              }
+              $("#incidents").append("<li>"+status["created_at"]+": "+content+"<br>~@"+status["account"]["acct"]+"</li>");
+              statuscount++;
             }
-            $("#incidents").append("<li>"+status["created_at"]+": "+content+"<br>~@"+status["account"]["acct"]+"</li>");
-            statuscount++;
+          });
+          $("#incidents").append("</ul>");
+          if (statuscount === 0) {
+            $("#incidents").html("<p class=\"error\">Nothing to see here...</p>")
           }
-        });
-        $("#incidents").append("</ul>");
-        if (statuscount === 0) {
-          $("#incidents").html("<p class=\"error\">Nothing to see here...</p>")
+          olddata = data;
         }
       });
-    });
+    }, 3000);
   }
 
   render() {

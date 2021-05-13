@@ -59,7 +59,8 @@ header {
 }
 
 .mention,
-.hashtag {
+.hashtag,
+.invisible {
   display: none;
 }
 
@@ -122,6 +123,9 @@ a:hover {
     min-height: 560px;
     width: 50%;
     margin: 0 auto;
+  }
+  #incidents {
+    margin-left: 36.5%;
   }
 }
 
