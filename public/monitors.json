@@ -17,7 +17,7 @@
     {
         "name": "vhs",
         "url": "https://vhs.koyu.space",
-        "enabled": true
+        "enabled": false
     },
     {
         "name": "mail",
