@@ -14,15 +14,17 @@ export default class App extends React.Component {
           } else {
             $("#statuses").append("<div class=\"status-item\"><span class=\"online\" id=\""+element["name"]+"\"></span> <span class=\"servicename\">"+element["name"]+"</span></div>");
           }
-          $.get(element["url"], function(data) {}).fail(function() {
-            $("#"+element["name"]).css("background", "red");
-          });
+          if (!element["custom"]) {
+            $.get(element["url"], function(data) {}).fail(function() {
+              $("#"+element["name"]).css("background", "red");
+            });
+          }
         }
       });
     });
     //Minecraft needs a special entry
-    window.setTimeout(function() {
-      $.get("https://mcapi.us/server/status?ip=koyu.space", function(data) {
+    window.setInterval(function() {
+      $.get("https://api.mcsrvstat.us/2/koyu.space", function(data) {
         try {
           if (data["online"] === "false") {
             $("#minecraft").css("background", "red");
@@ -31,14 +33,13 @@ export default class App extends React.Component {
       }).fail(function() {
         $("#minecraft").css("background", "red");
       });
-    });
+    }, 1000);
     var olddata = "";
     function loadIncidentHistory() {
       $.get("https://mastodon.social/api/v1/timelines/tag/koyustatus", function(data) {
         if (data !== olddata) {
           $("#incidents").html("");
           var statuscount = 0;
-          console.log(data);
           $("#incidents").append("<ul>")
           data.forEach(status => {
             if (status["account"]["acct"] === "koyu@koyu.space" || status["account"]["acct"] === "zack@koyu.space") {

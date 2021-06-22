@@ -173,4 +173,9 @@ a:hover {
   #content {
     margin-left: 0;
   }
+
+  .servicename {
+    margin-top: -32px;
+    margin-left: 48px;
+  }
 }

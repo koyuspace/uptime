@@ -2,26 +2,37 @@
     {
         "name": "chara",
         "url": "https://web.koyu.space",
-        "enabled": true
+        "enabled": true,
+        "custom": false
     },
     {
         "name": "koyuspace",
         "url": "https://koyu.space/api/v1/instance",
-        "enabled": true
+        "enabled": true,
+        "custom": false
     },
     {
         "name": "updates",
         "url": "https://updates.koyu.space",
-        "enabled": true
+        "enabled": true,
+        "custom": false
     },
     {
         "name": "vhs",
         "url": "https://vhs.koyu.space",
-        "enabled": false
+        "enabled": false,
+        "custom": false
     },
     {
         "name": "mail",
         "url": "https://mail.dyne.link",
-        "enabled": false
+        "enabled": false,
+        "custom": false
+    },
+    {
+        "name": "minecraft",
+        "url": "https://mc.koyu.space",
+        "enabled": true,
+        "custom": true
     }
 ]
