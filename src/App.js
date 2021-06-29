@@ -15,9 +15,11 @@ export default class App extends React.Component {
             $("#statuses").append("<div class=\"status-item\"><span class=\"online\" id=\""+element["name"]+"\"></span> <span class=\"servicename\">"+element["name"]+"</span></div>");
           }
           if (!element["custom"]) {
-            $.get(element["url"], function(data) {}).fail(function() {
-              $("#"+element["name"]).css("background", "red");
-            });
+            try {
+              $.get(element["url"], function(data) {}).fail(function() {
+                $("#"+element["name"]).css("background", "red");
+              });
+            } catch (e) {}
           }
         }
       });
