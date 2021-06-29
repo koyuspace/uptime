@@ -42,7 +42,7 @@ export default class App extends React.Component {
           var statuscount = 0;
           $("#incidents").append("<ul>")
           data.forEach(status => {
-            if (status["account"]["acct"] === "koyu@koyu.space" || status["account"]["acct"] === "zack@koyu.space") {
+            if (status["account"]["acct"] === "koyuchan@koyu.space" || status["account"]["acct"] === "zack@koyu.space" || status["account"]["acct"] === "koyu@qoto.org") {
               var content = twemoji.parse(status["content"]);
               status["emojis"].forEach(function(element) {
                 content = content.replaceAll(":"+element["shortcode"]+":", "<img src=\""+element["url"]+"\" class=\"emoji\" draggable=\"false\">");
