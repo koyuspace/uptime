@@ -38,7 +38,7 @@ export default class App extends React.Component {
     }, 1000);
     var olddata = "";
     function loadIncidentHistory() {
-      $.get("https://mastodon.social/api/v1/timelines/tag/koyustatus", function(data) {
+      $.get("https://qoto.org/api/v1/timelines/tag/koyustatus", function(data) {
         if (data !== olddata) {
           $("#incidents").html("");
           var statuscount = 0;
