@@ -1,11 +1,5 @@
 [
     {
-        "name": "chara",
-        "url": "https://web.koyu.space",
-        "enabled": true,
-        "custom": false
-    },
-    {
         "name": "koyuspace",
         "url": "https://koyu.space/api/v1/instance",
         "enabled": true,
