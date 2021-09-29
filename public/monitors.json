@@ -10,23 +10,5 @@
         "url": "https://updates.koyu.space",
         "enabled": true,
         "custom": false
-    },
-    {
-        "name": "vhs",
-        "url": "https://vhs.koyu.space",
-        "enabled": false,
-        "custom": false
-    },
-    {
-        "name": "mail",
-        "url": "https://mail.dyne.link",
-        "enabled": false,
-        "custom": false
-    },
-    {
-        "name": "minecraft",
-        "url": "https://mc.koyu.space",
-        "enabled": true,
-        "custom": true
     }
 ]
