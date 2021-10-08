@@ -94,17 +94,16 @@ export default class App extends React.Component {
         </header>
         <div id="content">
           <div id="loading">
-          <div class="spinner">
-            <div class="bounce1"></div>
-            <div class="bounce2"></div>
-            <div class="bounce3"></div>
+            <div class="spinner">
+              <div class="bounce1"></div>
+              <div class="bounce2"></div>
+              <div class="bounce3"></div>
+            </div>
           </div>
-          </div>
-          <div id="statuses">
-          </div>
+          <div id="statuses"></div>
           <h2>Incident history</h2>
           <div id="incidents"></div>
-          </div>
+        </div>
       </div>
     );
   }

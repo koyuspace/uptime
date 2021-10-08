@@ -162,7 +162,7 @@ a:hover {
 
 @media(max-width:800px) {
   #logo {
-    width: 48px;
+    height: 48px;
     margin-top: -8px;
   }
 
