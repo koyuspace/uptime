@@ -6,6 +6,7 @@ import $ from 'jquery';
 
 export default class App extends React.Component {
   componentDidMount() {
+    $("#statuses").hide();
     $.get("/monitors.json", function(data) {
       data.forEach(function(element) {
         if (element["enabled"]) {
@@ -16,13 +17,21 @@ export default class App extends React.Component {
           }
           if (!element["custom"]) {
             try {
-              $.get(element["url"], function(data) {}).fail(function() {
-                $("#"+element["name"]).css("background", "red");
-              });
+              $.ajax({
+                url: element["url"],
+                error: function(){
+                  $("#"+element["name"]).css("background", "red");
+                },
+                timeout: 2000
+            });
             } catch (e) {}
           }
         }
       });
+      window.setTimeout(function() {
+        $("#statuses").show();
+        $("#loading").hide();
+      }, 3000);
     });
     //Minecraft needs a special entry
     window.setInterval(function() {
@@ -81,9 +90,16 @@ export default class App extends React.Component {
     return (
       <div className="App">
         <header>
-          <span id="logofont"><img src={logo} id="logo" alt="Logo" /> koyu.space Status</span>
+          <span id="logo"><img src={logo} id="logo" alt="Logo" /></span>
         </header>
         <div id="content">
+          <div id="loading">
+          <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+          </div>
+          </div>
           <div id="statuses">
           </div>
           <h2>Incident history</h2>
