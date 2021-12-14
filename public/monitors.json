@@ -10,5 +10,11 @@
         "url": "https://updates.koyu.space",
         "enabled": true,
         "custom": false
+    },
+    {
+        "name": "home",
+        "url": "https://home.koyu.space",
+        "enabled": true,
+        "custom": false
     }
 ]
