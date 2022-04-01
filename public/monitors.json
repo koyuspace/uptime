@@ -10,5 +10,23 @@
         "url": "https://updates.koyu.space",
         "enabled": true,
         "custom": false
+    },
+    {
+        "name": "ghpages",
+        "url": "https://web.koyu.space",
+        "enabled": true,
+        "custom": false
+    },
+    {
+        "name": "mail",
+        "url": "https://mail.koyu.space",
+        "enabled": true,
+        "custom": true
+    },
+    {
+        "name": "tf2",
+        "url": "https://koyu.space",
+        "enabled": true,
+        "custom": true
     }
 ]

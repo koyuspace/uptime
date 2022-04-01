@@ -22,7 +22,7 @@ export default class App extends React.Component {
                 error: function(){
                   $("#"+element["name"]).css("background", "red");
                 },
-                timeout: 2000
+                timeout: 3000
             });
             } catch (e) {}
           }
@@ -33,11 +33,11 @@ export default class App extends React.Component {
         $("#loading").hide();
       }, 3000);
     });
-    //Minecraft needs a special entry
+    //TF2 needs a special entry
     window.setInterval(function() {
-      $.get("https://api.mcsrvstat.us/2/koyu.space", function(data) {
+      $.get("https://tf2-servers.com/api/?object=servers&element=detail&key=1kvaO0LmAf7IseSIrf9fmDQS4M81umIlfR", function(data) {
         try {
-          if (data["online"] === "false") {
+          if (data["is_online"] === "0") {
             $("#minecraft").css("background", "red");
           }
         } catch {}
@@ -45,9 +45,18 @@ export default class App extends React.Component {
         $("#minecraft").css("background", "red");
       });
     }, 1000);
+    //Mail
+    window.setInterval(function() {
+        var mainDiv = document.getElementById("check");
+        var img = mainDiv.appendChild(document.createElement("img"));
+        img.onerror = function() {
+          $("#mail").css("background", "red");
+        };
+        img.src = "https://office.mailbox.org/appsuite/apps/themes/org.mailbox.default/logo.png";
+    }, 1000)
     var olddata = "";
     function loadIncidentHistory() {
-      $.get("https://mastodon.social/api/v1/timelines/tag/koyustatus", function(data) {
+      $.get("https://mastodon.social/api/v1/timelines/tag/koyustatus?limit=5", function(data) {
         if (data !== olddata) {
           $("#incidents").html("");
           var statuscount = 0;
@@ -92,6 +101,7 @@ export default class App extends React.Component {
         <header>
           <span id="logo"><img src={logo} id="logo" alt="Logo" /></span>
         </header>
+        <div id="check" />
         <div id="content">
           <div id="loading">
             <div class="spinner">

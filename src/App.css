@@ -210,3 +210,7 @@ a:hover {
     margin-left: 48px;
   }
 }
+
+#check {
+  display: none;
+}
