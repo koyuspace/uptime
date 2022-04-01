@@ -101,7 +101,7 @@ export default class App extends React.Component {
         <header>
           <span id="logo"><img src={logo} id="logo" alt="Logo" /></span>
         </header>
-        <center><br /><a href="mailto:support@koyu.space" className="btn">Message support</a> <a href="tel:+4915207412666" className="btn">Call support</a><br /></center>
+        <center><br /><a href="mailto:support@koyu.space" className="btn">Message support</a> <a href="tel:+4915207412666" className="btn">Call support</a><br /><br /></center>
         <div id="check" />
         <div id="content">
           <div id="loading">
