@@ -90,9 +90,6 @@ export default class App extends React.Component {
       });
     }
     loadIncidentHistory();
-    window.setInterval(function() {
-      loadIncidentHistory();
-    }, 3000);
   }
 
   render() {
@@ -102,6 +99,7 @@ export default class App extends React.Component {
           <span id="logo"><img src={logo} id="logo" alt="Logo" /></span>
         </header>
         <center><br /><a href="mailto:support@koyu.space" className="btn">Message support</a> <a href="tel:+4915207412666" className="btn">Call support</a><br /><br /></center>
+        <center>Can't wait? <a href="https://wiki.koyu.space/docs/selfhost/" target="_blank" rel="noreferrer">Run your own instance!</a><br /><br /></center>
         <div id="check" />
         <div id="content">
           <div id="loading">
