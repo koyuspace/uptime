@@ -6,6 +6,12 @@
         "custom": false
     },
     {
+        "name": "cdn",
+        "url": "https://f001.backblazeb2.com/file/koyuspace-media/media_attachments/files/108/131/884/963/155/122/original/aa5f35d6a3bf95d2.png",
+        "enabled": true,
+        "custom": true
+    },
+    {
         "name": "updates",
         "url": "https://updates.koyu.space",
         "enabled": true,
