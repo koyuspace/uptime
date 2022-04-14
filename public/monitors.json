@@ -22,11 +22,5 @@
         "url": "https://mail.koyu.space",
         "enabled": true,
         "custom": true
-    },
-    {
-        "name": "tf2",
-        "url": "https://koyu.space",
-        "enabled": true,
-        "custom": true
     }
 ]
