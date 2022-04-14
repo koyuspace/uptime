@@ -33,18 +33,6 @@ export default class App extends React.Component {
         $("#loading").hide();
       }, 3000);
     });
-    //TF2 needs a special entry
-    window.setInterval(function() {
-      $.get("https://tf2-servers.com/api/?object=servers&element=detail&key=1kvaO0LmAf7IseSIrf9fmDQS4M81umIlfR", function(data) {
-        try {
-          if (data["is_online"] === "0") {
-            $("#minecraft").css("background", "red");
-          }
-        } catch {}
-      }).fail(function() {
-        $("#minecraft").css("background", "red");
-      });
-    }, 1000);
     //Mail
     window.setInterval(function() {
         var mainDiv = document.getElementById("check");
@@ -54,6 +42,15 @@ export default class App extends React.Component {
         };
         img.src = "https://office.mailbox.org/appsuite/apps/themes/org.mailbox.default/logo.png";
     }, 1000)
+    //CDN
+    window.setInterval(function() {
+      var mainDiv = document.getElementById("check");
+      var img = mainDiv.appendChild(document.createElement("img"));
+      img.onerror = function() {
+        $("#cdn").css("background", "red");
+      };
+      img.src = "https://f001.backblazeb2.com/file/koyuspace-media/media_attachments/files/108/131/884/963/155/122/original/aa5f35d6a3bf95d2.png";
+  }, 1000)
     var olddata = "";
     function loadIncidentHistory() {
       $.get("https://mastodon.social/api/v1/timelines/tag/koyustatus?limit=5", function(data) {
