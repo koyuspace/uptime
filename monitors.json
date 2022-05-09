@@ -28,5 +28,11 @@
         "url": "https://mail.koyu.space",
         "enabled": true,
         "custom": true
+    },
+    {
+        "name": "chat",
+        "url": "https://chat.koyu.space/api/v1/server_settings",
+        "enabled": true,
+        "custom": false
     }
 ]
